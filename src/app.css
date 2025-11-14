@@ -41,6 +41,7 @@ body {
 }
 
 .tool {
+    all: unset;
     width: 32px;
     height: 32px;
     border-radius: 800px;
@@ -70,4 +71,12 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+}
+
+.music-window {
+    width: 341px;
+    height: 251px;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 12px;
 }

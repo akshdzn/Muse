@@ -42,7 +42,19 @@
 
     // feauture under dev alert
     function featureUnderDevAlert() {
-        alert("This feature is currently dev");
+        alert("This feature is currently development");
+    }
+
+    // music window
+    let isMusicOpen = false;
+
+    function openCloseMusic() {
+        if (isMusicOpen) {
+            isMusicOpen = false;
+        } else {
+            isMusicOpen = true;
+        }
+        console.log(isMusicOpen);
     }
 </script>
 
@@ -54,10 +66,10 @@
         </div>
 
         <div class="toolbar">
-            <div class="tool" on:click={featureUnderDevAlert}>
+            <button class="tool" on:click={featureUnderDevAlert}>
                 <MusicNote weight="fill" size={20}></MusicNote>
-            </div>
-            <div
+            </button>
+            <button
                 class="tool"
                 on:click={window.open(
                     "https://github.com/akshdzn/Muse",
@@ -65,7 +77,7 @@
                 )}
             >
                 <GithubLogo weight="fill" size={20}></GithubLogo>
-            </div>
+            </button>
         </div>
     </div>
 </main>
