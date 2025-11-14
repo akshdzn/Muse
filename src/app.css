@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+
+body {
+    margin: 0;
+    background-color: black;
+    background-image: url("/sky-clouds.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    /*font*/
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.time {
+    color: white;
+    font-size: 96px;
+    font-weight: bold;
+    letter-spacing: -8px;
+}
+
+.timebx {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.date {
+    color: white;
+    letter-spacing: -0.5px;
+    font-size: 24px;
+    margin-top: -16px;
+}
