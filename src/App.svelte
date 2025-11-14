@@ -1,5 +1,7 @@
 <script>
     import { MusicNote, GithubLogo } from "phosphor-svelte";
+    import Music from "./lib/Music.svelte";
+    import Pomo from "./lib/Pomo.svelte";
 
     let date = new Date();
     let time = date.toLocaleTimeString("en-US", {
@@ -54,7 +56,6 @@
         } else {
             isMusicOpen = true;
         }
-        console.log(isMusicOpen);
     }
 </script>
 
@@ -79,5 +80,13 @@
                 <GithubLogo weight="fill" size={20}></GithubLogo>
             </button>
         </div>
+    </div>
+
+    {#if isMusicOpen}
+        <Music></Music>
+    {/if}
+
+    <div class="bottom">
+        <Pomo></Pomo>
     </div>
 </main>
