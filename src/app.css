@@ -16,7 +16,7 @@ body {
     font-family: "Geist", sans-serif;
     font-optical-sizing: auto;
 
-    height: 100vh;
+    height: 100dvh;
     box-sizing: border-box;
 
     display: flex;

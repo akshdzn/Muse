@@ -72,10 +72,9 @@
             </button>
             <button
                 class="tool"
-                on:click={window.open(
-                    "https://github.com/akshdzn/Muse",
-                    "_blank",
-                )}
+                on:click={() => {
+                    window.open("https://github.com/akshdzn/Muse", "_blank");
+                }}
             >
                 <GithubLogo weight="fill" size={20}></GithubLogo>
             </button>

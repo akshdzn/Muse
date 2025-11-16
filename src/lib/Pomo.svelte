@@ -6,10 +6,12 @@
     let timer;
     let timeRemaining = workTime;
     let isTimerRunning = false;
+    let isTimerFinished = true;
 
     function startPomo() {
         if (!isTimerRunning) {
             isTimerRunning = true;
+            isTimerFinished = false;
             timer = setInterval(() => {
                 if (timeRemaining > 0) {
                     timeRemaining -= 1;
@@ -30,11 +32,10 @@
     }
 
     function resetPomo() {
-        if (isTimerRunning) {
-            clearInterval(timer);
-            isTimerRunning = false;
-            timeRemaining = workTime;
-        }
+        clearInterval(timer);
+        isTimerRunning = false;
+        isTimerFinished = true;
+        timeRemaining = workTime;
     }
 
     function formatTime(time) {
@@ -47,7 +48,7 @@
 </script>
 
 <div class="pomodoro">
-    {#if isTimerRunning}
+    {#if !isTimerFinished}
         <button class="pomo-button" aria-label="button" on:click={resetPomo}>
             <ClockClockwise weight="fill" size={24}></ClockClockwise>
         </button>
