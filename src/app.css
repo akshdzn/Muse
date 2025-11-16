@@ -159,9 +159,12 @@ body {
     position: absolute;
     bottom: 0;
     display: flex;
+    flex-direction: column;
     width: 100vw;
     justify-content: center;
+    align-items: center;
     margin-bottom: 22px;
+    gap: 12px;
 }
 
 .pomo-attachment {
@@ -204,4 +207,47 @@ body {
 
 .play-pomo {
     color: var(--accent);
+}
+
+.edit-menu {
+    width: 341px;
+    height: 251px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+.toggleBx {
+    width: fit-content;
+    height: fit-content;
+    padding: 2px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-item {
+    all: unset;
+    width: 60px;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 800px;
+    color: black;
+}
+
+.toggle-active {
+    color: white;
+    background-color: var(--accent);
 }

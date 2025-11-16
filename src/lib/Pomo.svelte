@@ -1,10 +1,19 @@
 <script>
     import { PencilSimple, Play, Pause, ClockClockwise } from "phosphor-svelte";
 
-    const workTime = 1500;
+    let modes = ["work", "break", "long"];
+    let modeTimes = [1500, 300, 600];
+    let currentModeTime = modeTimes[0];
+    let currentMode = modes[0];
+
+    function updateMode(mode) {
+        currentModeTime = modeTimes[mode];
+        currentMode = modes[mode];
+        timeRemaining = currentModeTime;
+    }
 
     let timer;
-    let timeRemaining = workTime;
+    let timeRemaining = currentModeTime;
     let isTimerRunning = false;
     let isTimerFinished = true;
 
@@ -35,7 +44,7 @@
         clearInterval(timer);
         isTimerRunning = false;
         isTimerFinished = true;
-        timeRemaining = workTime;
+        timeRemaining = currentModeTime;
     }
 
     function formatTime(time) {
@@ -45,7 +54,54 @@
             String(mins).padStart(2, "0") + ":" + String(secs).padStart(2, "0");
         return formatTime;
     }
+
+    let isEditOpen = false;
+
+    function openCloseEdit() {
+        if (isEditOpen) {
+            isEditOpen = false;
+        } else {
+            isEditOpen = true;
+        }
+    }
 </script>
+
+{#if isEditOpen}
+    <div class="edit-menu">
+        <div class="toggleBx">
+            <button
+                class={currentMode == "work"
+                    ? "toggle-item toggle-active"
+                    : "toggle-item"}
+                on:click={() => {
+                    updateMode(0);
+                }}
+            >
+                work
+            </button>
+            <button
+                class={currentMode == "break"
+                    ? "toggle-item toggle-active"
+                    : "toggle-item"}
+                on:click={() => {
+                    updateMode(1);
+                }}
+            >
+                break
+            </button>
+            <button
+                class={currentMode == "long"
+                    ? "toggle-item toggle-active"
+                    : "toggle-item"}
+                on:click={() => {
+                    updateMode(2);
+                }}
+            >
+                long
+            </button>
+        </div>
+    </div>
+{/if}
 
 <div class="pomodoro">
     {#if !isTimerFinished}
@@ -53,7 +109,11 @@
             <ClockClockwise weight="fill" size={24}></ClockClockwise>
         </button>
     {:else}
-        <button class="pomo-button" aria-label="button">
+        <button
+            class="pomo-button"
+            aria-label="button"
+            on:click={openCloseEdit}
+        >
             <PencilSimple weight="fill" size={24}></PencilSimple>
         </button>
     {/if}
