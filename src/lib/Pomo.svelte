@@ -1,5 +1,7 @@
 <script>
     import { PencilSimple, Play, Pause, ClockClockwise } from "phosphor-svelte";
+    import AlarmSound from "/analogAlarm.mp3";
+    const AlarmAudio = new Audio(AlarmSound);
 
     let modes = ["work", "break", "long"];
     let modeTimes = [1500, 300, 600];
@@ -31,6 +33,7 @@
 
     $: if (timeRemaining < 1) {
         resetPomo();
+        AlarmAudio.play();
     }
 
     function pausePomo() {
