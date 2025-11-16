@@ -96,11 +96,23 @@ body {
     gap: 5px;
 }
 
+.music-window-pos {
+    /*border: solid red;*/
+    display: flex;
+    justify-content: center;
+}
+
+.music-hidden {
+    opacity: 0%;
+    pointer-events: none;
+}
+
 .player {
-    width: 100%;
-    height: 100%;
+    width: 331px;
+    height: 197px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 15px;
+    overflow: hidden;
 }
 
 .music-input {
@@ -128,14 +140,19 @@ body {
     font-size: 32px;
     color: white;
     letter-spacing: -2px;
-    background-color: var(--accent);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4px 19px 4px 19px;
-    width: fit-content;
-    height: fit-content;
+}
+
+.pomo-time-bg {
+    width: 130px;
+    height: 51px;
+    background-color: var(--accent);
     border-radius: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bottom {

@@ -30,15 +30,15 @@
     let month = months[date.getMonth()];
 
     let weekdays = [
+        "Sunday",
         "Monday",
         "Tuesday",
         "Wednesday",
         "Thursday",
         "Friday",
         "Saturday",
-        "Sunday",
     ];
-    let weekday = weekdays[date.getDay() - 1];
+    let weekday = weekdays[date.getDay()];
 
     let formatDate = day + " " + month + " " + weekday;
 
@@ -67,7 +67,7 @@
         </div>
 
         <div class="toolbar">
-            <button class="tool" on:click={featureUnderDevAlert}>
+            <button class="tool" on:click={openCloseMusic}>
                 <MusicNote weight="fill" size={20}></MusicNote>
             </button>
             <button
@@ -82,9 +82,13 @@
         </div>
     </div>
 
-    {#if isMusicOpen}
+    <div
+        class={isMusicOpen
+            ? "music-window-pos"
+            : "music-window-pos music-hidden"}
+    >
         <Music></Music>
-    {/if}
+    </div>
 
     <div class="bottom">
         <Pomo></Pomo>
