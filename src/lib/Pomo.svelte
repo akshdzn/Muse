@@ -1,5 +1,14 @@
 <script>
-    import { PencilSimple, Play, Pause, ClockClockwise } from "phosphor-svelte";
+    import {
+        PencilSimple,
+        Play,
+        Pause,
+        ClockClockwise,
+        CaretUp,
+        CaretDown,
+        CheckFat,
+    } from "phosphor-svelte";
+
     import AlarmSound from "/analogAlarm.mp3";
     const AlarmAudio = new Audio(AlarmSound);
 
@@ -8,10 +17,16 @@
     let currentModeTime = modeTimes[0];
     let currentMode = modes[0];
 
+    let modeColors = ["#FF3131", "#0077FF", "#00CA36"];
+
     function updateMode(mode) {
         currentModeTime = modeTimes[mode];
         currentMode = modes[mode];
         timeRemaining = currentModeTime;
+        document.documentElement.style.setProperty(
+            "--accent",
+            modeColors[mode],
+        );
     }
 
     let timer;
@@ -20,7 +35,7 @@
     let isTimerFinished = true;
 
     function startPomo() {
-        if (!isTimerRunning) {
+        if (!isTimerRunning && !isEditOpen) {
             isTimerRunning = true;
             isTimerFinished = false;
             timer = setInterval(() => {
@@ -67,6 +82,12 @@
             isEditOpen = true;
         }
     }
+
+    function updateCurrentTime(modif) {
+        if (timeRemaining + modif > 0) {
+            timeRemaining = timeRemaining + modif;
+        }
+    }
 </script>
 
 {#if isEditOpen}
@@ -103,6 +124,39 @@
                 long
             </button>
         </div>
+
+        <div class="edit-timeBx">
+            <div class="edit-controls">
+                <button
+                    on:click={() => {
+                        updateCurrentTime(60);
+                    }}><CaretUp size={28} weight="fill"></CaretUp></button
+                >
+                <button
+                    on:click={() => {
+                        updateCurrentTime(-60);
+                    }}><CaretDown size={28} weight="fill"></CaretDown></button
+                >
+            </div>
+            <div class="edit-time">{formatTime(timeRemaining)}</div>
+            <div class="edit-controls">
+                <button
+                    on:click={() => {
+                        updateCurrentTime(1);
+                    }}><CaretUp size={28} weight="fill"></CaretUp></button
+                >
+                <button
+                    on:click={() => {
+                        updateCurrentTime(-1);
+                    }}><CaretDown size={28} weight="fill"></CaretDown></button
+                >
+            </div>
+        </div>
+
+        <button class="edit-done" on:click={openCloseEdit}>
+            <CheckFat weight="fill" size={14}></CheckFat>
+            DONE
+        </button>
     </div>
 {/if}
 
@@ -121,7 +175,7 @@
         </button>
     {/if}
     <div class="pomo-timeBx">
-        <div class="pomo-attachment">work</div>
+        <div class="pomo-attachment">{currentMode}</div>
         <div class="pomo-time-bg">
             <div class="pomo-time">{formatTime(timeRemaining)}</div>
         </div>

@@ -216,7 +216,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
@@ -250,4 +250,44 @@ body {
 .toggle-active {
     color: white;
     background-color: var(--accent);
+}
+
+.edit-timeBx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.edit-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-time {
+    color: var(--accent);
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: -5px;
+    width: 180px;
+    text-align: center;
+}
+
+.edit-done {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    width: 78px;
+    height: 30px;
+    background-color: var(--accent);
+    border-radius: 800px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+button {
+    all: unset;
 }

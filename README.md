@@ -1,17 +1,18 @@
 # Muse
 A pomodoro timer app that's designed with care 🌱
-- Currently under development and in an unusable state
+- Currently in beta
+- All the features are implemented (just need some polishing and animations)
 
 *Features*
 -------
 - Implemented Music Playback from YouTube
 - Pomodoro timer
-- Barebones Timer Modes (Currently under dev)
+- Pomodoro Modes
 
 *Under Dev Features*
 ---
 - Animations
-- Mobile Layout
+- Proper Mobile Layout
 - Ui Sounds
 - Themes 
 - Interactivity
