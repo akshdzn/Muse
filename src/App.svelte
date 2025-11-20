@@ -2,6 +2,7 @@
     import { MusicNote, GithubLogo } from "phosphor-svelte";
     import Music from "./lib/Music.svelte";
     import Pomo from "./lib/Pomo.svelte";
+    import { onDestroy, onMount } from "svelte";
 
     let date = new Date();
     let time = date.toLocaleTimeString("en-US", {
@@ -41,6 +42,53 @@
     let weekday = weekdays[date.getDay()];
 
     let formatDate = day + " " + month + " " + weekday;
+
+    onMount(() => {
+        let updateTime = setInterval(() => {
+            date = new Date();
+            time = date.toLocaleTimeString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+            });
+            time = time.replace("AM", "").replace("PM", "");
+
+            let day = date.getDate();
+
+            const months = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+            ];
+            let month = months[date.getMonth()];
+
+            let weekdays = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+            ];
+            let weekday = weekdays[date.getDay()];
+
+            let formatDate = day + " " + month + " " + weekday;
+        }, 1000);
+
+        onDestroy(() => {
+            clearInterval(updateTime);
+        });
+    });
 
     // feauture under dev alert
     function featureUnderDevAlert() {
