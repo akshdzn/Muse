@@ -88,6 +88,13 @@
             timeRemaining = timeRemaining + modif;
         }
     }
+
+    // title change
+    $: if (isTimerRunning) {
+        document.title = "Muse | " + formatTime(timeRemaining);
+    } else {
+        document.title = "Muse";
+    }
 </script>
 
 {#if isEditOpen}
