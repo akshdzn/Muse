@@ -77,7 +77,13 @@
 
     function openCloseEdit() {
         if (isEditOpen) {
-            isEditOpen = false;
+            document
+                .querySelector(".edit-menu")
+                .classList.add("edit-menu-close-anim");
+
+            setTimeout(() => {
+                isEditOpen = false;
+            }, 400);
         } else {
             isEditOpen = true;
         }
@@ -174,7 +180,7 @@
         </button>
     {:else}
         <button
-            class="pomo-button"
+            class={isEditOpen ? "pomo-button button-active" : "pomo-button"}
             aria-label="button"
             on:click={openCloseEdit}
         >

@@ -100,9 +100,25 @@
 
     function openCloseMusic() {
         if (isMusicOpen) {
-            isMusicOpen = false;
+            document
+                .querySelector(".music-window-pos")
+                .classList.add("music-leave-anim");
+            document
+                .querySelector(".music-window-pos")
+                .classList.remove("music-enter-anim");
+            setTimeout(() => {
+                isMusicOpen = false;
+            }, 400);
         } else {
-            isMusicOpen = true;
+            document
+                .querySelector(".music-window-pos")
+                .classList.add("music-enter-anim");
+            document
+                .querySelector(".music-window-pos")
+                .classList.remove("music-leave-anim");
+            setTimeout(() => {
+                isMusicOpen = true;
+            }, 400);
         }
     }
 </script>
