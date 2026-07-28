@@ -332,11 +332,35 @@ body {
     align-items: center;
     border-radius: 800px;
     color: black;
+    user-select: none;
 }
+
+.button-bg {
+    width: 60px;
+    background-color: var(--accent);
+    border-radius: 800px;
+    height: 18px;
+    position: absolute;
+    z-index: -1;
+
+    &.work {
+        transform: translateX(-60px);
+    }
+
+    &.break {
+        transform: translateX(0px);
+    }
+
+    &.long {
+        transform: translateX(60px);
+    }
+
+    transition: all cubic-bezier(0.31, 0.18, 0.02, 0.98) 200ms;
+}
+
 
 .toggle-active {
     color: white;
-    background-color: var(--accent);
 }
 
 .edit-timeBx {

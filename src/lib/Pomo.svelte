@@ -106,6 +106,7 @@
 {#if isEditOpen}
     <div class="edit-menu">
         <div class="toggleBx">
+            <div class={`button-bg ${currentMode}`}></div>
             <button
                 class={currentMode == "work"
                     ? "toggle-item toggle-active"
