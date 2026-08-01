@@ -157,3 +157,5 @@
         <Pomo></Pomo>
     </div>
 </main>
+
+<!-- the app is complete for now -->
