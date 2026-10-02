@@ -90,7 +90,7 @@
         });
     });
 
-    // feauture under dev alert
+    // bro thinks he is a AAA developer
     function featureUnderDevAlert() {
         alert("This feature is currently development");
     }

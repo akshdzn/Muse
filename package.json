@@ -13,5 +13,8 @@
     "phosphor-svelte": "^3.0.1",
     "svelte": "^5.43.5",
     "vite": "^7.2.2"
+  },
+  "dependencies": {
+    "@scritto/svelte": "^0.1.0"
   }
 }

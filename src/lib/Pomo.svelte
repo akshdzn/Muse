@@ -9,6 +9,8 @@
         CheckFat,
     } from "phosphor-svelte";
 
+    import Scritto from "@scritto/svelte";
+
     import AlarmSound from "/analogAlarm.mp3";
     const AlarmAudio = new Audio(AlarmSound);
 
@@ -152,7 +154,9 @@
                     }}><CaretDown size={28} weight="fill"></CaretDown></button
                 >
             </div>
-            <div class="edit-time">{formatTime(timeRemaining)}</div>
+            <div class="edit-time">
+                <Scritto bounce={true} value={formatTime(timeRemaining)} />
+            </div>
             <div class="edit-controls">
                 <button
                     on:click={() => {
@@ -191,7 +195,9 @@
     <div class="pomo-timeBx">
         <div class="pomo-attachment">{currentMode}</div>
         <div class="pomo-time-bg">
-            <div class="pomo-time">{formatTime(timeRemaining)}</div>
+            <div class="pomo-time">
+                <Scritto bounce={true} value={formatTime(timeRemaining)} />
+            </div>
         </div>
     </div>
     {#if isTimerRunning}
