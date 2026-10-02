@@ -76,9 +76,11 @@
     }
 
     let isEditOpen = false;
+    let isEditActive = false;
 
     function openCloseEdit() {
         if (isEditOpen) {
+            isEditActive = false;
             document
                 .querySelector(".edit-menu")
                 .classList.add("edit-menu-close-anim");
@@ -88,6 +90,7 @@
             }, 400);
         } else {
             isEditOpen = true;
+            isEditActive = true;
         }
     }
 
@@ -185,7 +188,7 @@
         </button>
     {:else}
         <button
-            class={isEditOpen ? "pomo-button button-active" : "pomo-button"}
+            class={isEditActive ? "pomo-button button-active" : "pomo-button"}
             aria-label="button"
             on:click={openCloseEdit}
         >
