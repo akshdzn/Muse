@@ -109,6 +109,7 @@ body {
 }
 
 .music-leave-anim {
+    pointer-events: none;
     animation-name: push-d-u-exit;
     animation-duration: 500ms;
     animation-timing-function: cubic-bezier(0.26, 0.19, 0.02, 0.98);
